@@ -31,6 +31,11 @@ jobs:
         with:
           python-version: 3.11.0
           
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+          
       - name: run table gen script
         run: python /home/runner/work/SF22-FaCES/SF22-FaCES/indextablecreator.py
         shell: python
