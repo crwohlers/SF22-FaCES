@@ -37,8 +37,7 @@ jobs:
           pip install flake8
           
       - name: run table gen script
-        run: indextablecreator.py
-        shell: python
+        run: python indextablecreator.py
         
       - name: commit files
         run: |
