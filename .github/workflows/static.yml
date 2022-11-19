@@ -24,7 +24,9 @@ jobs:
   generatetable:
     runs-on: ubuntu-latest
     steps:
-      - name: run-table-gen-script
+      - name: checkout repo content
+        uses: actions/checkout@v3
+      - name: run table gen script
         run: | 
           python indextablecreator.py
         shell: python
