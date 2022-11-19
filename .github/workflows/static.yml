@@ -32,7 +32,7 @@ jobs:
           python-version: 3.11.0
       - name: run table gen script
         run: | 
-          opt/hostedtoolcache/Python/3.11.0/x64/python3.exe /home/runner/work/SF22-FaCES/SF22-FaCES/indextablecreator.py
+          opt/hostedtoolcache/Python/'3.11.0'/x64/python3.exe /home/runner/work/SF22-FaCES/SF22-FaCES/indextablecreator.py
         shell: python
   deploy:
     if: ${{ always() }}
