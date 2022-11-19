@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: run-table-gen-script
         run: | 
-          "indextablecreator.py"
+          python indextablecreator.py
         shell: python
   deploy:
     if: ${{ always() }}
