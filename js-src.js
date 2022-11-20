@@ -63,7 +63,7 @@ function parseData(){
            let lines = data.split("\n");
            let headers = lines[0].split(",");
 
-           let retVal;
+           let retVal = [];
 
             for (let x = 1; x < lines.length; x++) {
                 const eles = lines[x].split(",");
