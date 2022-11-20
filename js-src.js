@@ -5,8 +5,10 @@ function createTable(data){
 
   let keys = Object.keys(data[0]);
 
-  for (let key of keys) {
+  for (let x = 0; x< keys.length; x ++) {
+    let key = keys[x];
     let th = document.createElement("th");
+    th.onclick = () => sortTable(x);
     let text = document.createTextNode(key);
     th.appendChild(text);
     row.appendChild(th);
