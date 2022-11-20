@@ -81,5 +81,4 @@ function parseData(){
     return ret;
 }
 
-let data = await parseData();
-createTable(data);
+parseData().then((data)=>createTable(data));
