@@ -12,8 +12,9 @@ function createTable(data){
     row.appendChild(th);
   }
 
+  let tbody = table.createTable();
   for (let element of data) {
-    let row = table.insertRow();
+    let row = tbody.insertRow();
     for (let key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
