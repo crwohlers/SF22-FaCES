@@ -57,10 +57,10 @@ function sortTable(n) {
   }
 
 function parseData(){
-    let ret = fetch('./data.csv').then(
+    let ret = fetch('./data.csv')
+    .then((reponse) => reponse.text()).then(
         function(data){
-            //console.log(data.text());
-           let lines = data.text().split("\n");
+           let lines = data.split("\n");
            let headers = lines[0].split(",");
 
            let retVal;
