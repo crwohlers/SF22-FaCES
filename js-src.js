@@ -12,7 +12,8 @@ function createTable(data){
     row.appendChild(th);
   }
 
-  let tbody = table.createElement("tbody");
+  let tbody = document.createElement("tbody");
+  table.appendChild(tbody);
   for (let element of data) {
     let row = tbody.insertRow();
     for (let key in element) {
