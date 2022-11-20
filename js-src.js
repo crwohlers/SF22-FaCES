@@ -12,7 +12,7 @@ function createTable(data){
     row.appendChild(th);
   }
 
-  let tbody = table.createTable();
+  let tbody = table.createElement("tbody");
   for (let element of data) {
     let row = tbody.insertRow();
     for (let key in element) {
