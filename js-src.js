@@ -59,6 +59,7 @@ function sortTable(n) {
 function parseData(){
     let ret = fetch('./data.csv').then(
         function(data){
+            console.log(data);
            let lines = data.split("\n");
            let headers = lines[0].split(",");
 
