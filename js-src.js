@@ -1,7 +1,6 @@
 function createTable(data){
     console.log(data);
 }
-
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("myTable2");
@@ -58,7 +57,7 @@ function sortTable(n) {
   }
 
 function parseData(){
-    let ret = fetch('./data.csv')
+    const ret = fetch('./data.csv')
     .then((reponse) => reponse.text()).then(
         function(data){
            let lines = data.split("\n");
@@ -76,15 +75,11 @@ function parseData(){
                 retVal[x-1] = obj;
             }
 
-            
+            return retVal;
         });
 
-    const retVal = async () => {
-        return await ret;
-    };
-          
-    return retVal();
+    return ret;
 }
 
-let data = parseData();
+let data = await parseData();
 createTable(data);
