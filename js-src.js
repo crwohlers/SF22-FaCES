@@ -1,6 +1,7 @@
-function createTable(){
-
+function createTable(data){
+    console.log(data);
 }
+
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("myTable2");
@@ -75,13 +76,15 @@ function parseData(){
                 retVal[x-1] = obj;
             }
 
-            return retVal;
+            
         });
 
-    console.log(ret);
-
-    return ret;
+    const retVal = async () => {
+        return await ret;
+    };
+          
+    return retVal();
 }
 
 let data = parseData();
-createTable();
+createTable(data);
