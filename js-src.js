@@ -67,7 +67,7 @@ function parseData(){
 
             for (let x = 1; x < lines.length; x++) {
                 const eles = lines[x].split(",");
-                let obj;
+                let obj = {};
                 for (let index = 0; index < headers.length; index++) {
                     obj[headers[index]] = eles[index];
                 }
