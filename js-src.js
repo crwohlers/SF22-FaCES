@@ -8,7 +8,7 @@ function createTable(data){
   for (let x = 0; x< keys.length; x ++) {
     let key = keys[x];
     let th = document.createElement("th");
-    th.onclick = () => sortTable(x);
+    //th.onclick = () => sortTable(x);          //fix
     let text = document.createTextNode(key);
     th.appendChild(text);
     row.appendChild(th);
@@ -81,9 +81,10 @@ function sortTable(n) {
   }
 
 function parseData(){
-    const ret = fetch('./data.csv')
+    const ret = fetch('https://spreadsheets.google.com/spreadsheet/pub?key=1DQICvAOn2i3cXQHMRPJUoZ76TB_3sb1QkJeLeU-r9ko&output=csv')
     .then((reponse) => reponse.text()).then(
         function(data){
+            console.log(data);
            let lines = data.split("\n");
            let headers = lines[0].split(",");
 
