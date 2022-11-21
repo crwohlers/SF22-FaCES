@@ -84,7 +84,6 @@ function parseData(){
     const ret = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vR93T8C7GNbKAjsYVfDcstgsmT_FSx5w3tW96CeeAq2fcPZ8Pr49RXz1cVU2ckRzzwA2n6mks6a5mZY/pub?gid=0&single=true&output=csv')
     .then((reponse) => reponse.text()).then(
         function(data){
-            console.log(data);
            let lines = data.split("\n");
            let headers = lines[0].split(",");
 
