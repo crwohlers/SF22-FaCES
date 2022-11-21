@@ -94,7 +94,7 @@ function parseData(){
                 let obj = {};
                 for (let index = 0; index < headers.length; index++) {
                     console.log(eles[index].replace(/(^"|"$)/, ""));
-                    obj[headers[index]] = eles[index].replace(/(^"|"$)/, "");
+                    obj[headers[index]] = eles[index].replace(/(^"|"$)/g, "");
                 }
 
                 retVal[x-1] = obj;
