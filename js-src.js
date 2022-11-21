@@ -93,7 +93,7 @@ function parseData(){
                 const eles = lines[x].split(/(?!\B\"[^"]*),(?![^"]*\"\B)/);
                 let obj = {};
                 for (let index = 0; index < headers.length; index++) {
-                    console.log(eles[index].replace(/(^"|"$)/, ""));
+                    console.log(eles[index]);
                     obj[headers[index]] = eles[index].replace(/(^"|"$)/g, "");
                 }
 
