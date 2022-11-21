@@ -85,7 +85,7 @@ function parseData(){
     .then((reponse) => reponse.text()).then(
         function(data){
            let lines = data.split("\n");
-           let headers = lines[0].split("(?!\\B\"[^\"]*),(?![^\"]*\"\\B)");
+           let headers = lines[0].split(/(?!\\B\"[^\"]*),(?![^\"]*\"\\B)/);
 
            let retVal = [];
 
