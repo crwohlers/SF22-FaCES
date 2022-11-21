@@ -90,7 +90,7 @@ function parseData(){
            let retVal = [];
 
             for (let x = 1; x < lines.length; x++) {
-                const eles = lines[x].split(",");
+                const eles = lines[x].split(/(?!\B\"[^"]*),(?![^"]*\"\B)/);
                 let obj = {};
                 for (let index = 0; index < headers.length; index++) {
                     obj[headers[index]] = eles[index];
