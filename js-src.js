@@ -8,7 +8,7 @@ function createTable(data){
   for (let x = 0; x< keys.length; x ++) {
     let key = keys[x];
     let th = document.createElement("th");
-    //th.onclick = () => sortTable(x);          //fix
+    th.onclick = function () {sortTable(x)};
     let text = document.createTextNode(key);
     th.appendChild(text);
     row.appendChild(th);
