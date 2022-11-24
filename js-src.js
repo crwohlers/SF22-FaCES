@@ -30,8 +30,8 @@ function createTable(data){
 }
 
 function sorter(a, b){
-  var afix = a[rowIndex].replace("$", "");
-  var bfix = b[rowIndex].replace("$", "");
+  var afix = a.children[colIndex].innerText.replace("$", "");
+  var bfix = b.children[colIndex].innerText.replace("$", "");
 
   var aNum = parseInt(afix);
   var bNum = parseInt(bfix);
@@ -40,22 +40,22 @@ function sorter(a, b){
     return bNum - aNum;
   }
   else{
-    return a[rowIndex].localeCompare(b[rowIndex]);
+    return afix.localeCompare(bfix);
   }
 }
 
-let rowIndex = -1;
+let colIndex = -1;
 
 function sortTable(n) {
   let table = document.getElementById("myTable2"); 
   let rows = Array.from(table.rows);
   let rev = false;
 
-  if (rowIndex == n){
+  if (colIndex == n){
     rev = true;
   }
   console.log(rows);
-  rowIndex = n;
+  colIndex = n;
   rows.sort((a, b)=>sorter(a, b));
 
   if (rev){
