@@ -54,7 +54,7 @@ function sortTable(n) {
     rev = true;
   }
   rowIndex = n;
-  rows.sort(sorter(a, b));
+  rows.sort((a, b)=>sorter(a, b));
 
   if (rev){
     rows.reverse();
