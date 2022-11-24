@@ -1,5 +1,3 @@
-
-
 function createTable(data){
   table = document.getElementById("myTable2");
   let thead = table.createTHead();
@@ -36,7 +34,7 @@ function sorter(a, b){
   var aNum = parseInt(afix);
   var bNum = parseInt(bfix);
 
-  if ((!isNaN(aNum) && str(aNum).length == afix.length) && (!isNaN(bNum) && str(bNum).length == bfix.length)){
+  if ((!isNaN(aNum) && (''+aNum).length == afix.length) && (!isNaN(bNum) && (''+bNum).length == bfix.length)){
     console.log("num");
     return aNum - bNum;
   }
