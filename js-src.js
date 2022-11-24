@@ -54,7 +54,7 @@ function sortTable(n) {
   if (colIndex == n){
     rev = true;
   }
-  console.log(rows);
+  console.log(table.childNodes);
   colIndex = n;
   rows.sort((a, b)=>sorter(a, b));
 
@@ -63,7 +63,7 @@ function sortTable(n) {
   }
 
 
-  table.childNodes[1].replaceChildren(rows);
+  table.childNodes[0].replaceChildren(rows);
 
 }
 
