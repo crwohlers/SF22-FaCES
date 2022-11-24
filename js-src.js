@@ -57,7 +57,7 @@ function sortTable(n) {
   rows.shift();
   console.log(n);
   if (colIndex == n){
-    rev = true;
+    rev = !rev;
   }
   colIndex = n;
   rows.sort((a, b)=>sorter(a, b));
