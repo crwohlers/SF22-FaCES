@@ -36,7 +36,7 @@ function sorter(a, b){
   var aNum = parseInt(afix);
   var bNum = parseInt(bfix);
 
-  if (aNum != NaN && bNum != NaN){
+  if (!isNaN(aNum) && !isNaN(bNum)){
     console.log("numbersort");
     return bNum - aNum;
   }
