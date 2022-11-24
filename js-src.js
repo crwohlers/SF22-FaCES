@@ -52,7 +52,7 @@ function sortTable(n) {
   let rev = false;
 
   rows.shift();
-  console.log(rows);
+  console.log(n);
   if (colIndex == n){
     rev = true;
   }
