@@ -42,6 +42,7 @@ function sorter(a, b){
   }
   else{
     console.log("stringsort");
+    console.log(afix + ", " + bfix);
     return afix.localeCompare(bfix);
   }
 }
