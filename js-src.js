@@ -37,7 +37,7 @@ function sorter(a, b){
   var bNum = parseInt(bfix);
 
   if (!isNaN(aNum) && !isNaN(bNum)){
-    return bNum - aNum;
+    return aNum - bNum;
   }
   else{
     return afix.localeCompare(bfix);
@@ -59,7 +59,7 @@ function sortTable(n) {
   else {
     rev = false;
   }
-  
+
   colIndex = n;
   rows.sort((a, b)=>sorter(a, b));
 
