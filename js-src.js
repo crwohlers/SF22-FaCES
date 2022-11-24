@@ -34,7 +34,7 @@ function sorter(a, b){
   var aNum = parseInt(afix);
   var bNum = parseInt(bfix);
 
-  if ((!isNaN(aNum) && (''+aNum).length == afix.length) && (!isNaN(bNum) && (''+bNum).length == bfix.length)){
+  if (!isNaN(aNum) && !isNaN(bNum)){
     console.log("num");
     return aNum - bNum;
   }
