@@ -48,12 +48,13 @@ let rowIndex = -1;
 
 function sortTable(n) {
   let table = document.getElementById("myTable2"); 
-  let rows = table.rows;
+  let rows = Array.from(table.rows);
   let rev = false;
+  
   if (rowIndex == n){
     rev = true;
   }
-  console.log(rows);
+  
   rowIndex = n;
   rows.sort((a, b)=>sorter(a, b));
 
