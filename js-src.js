@@ -51,6 +51,7 @@ function sortTable(n) {
   let rows = Array.from(table.rows);
   let rev = false;
 
+  rows.shift();
   console.log(rows);
   if (colIndex == n){
     rev = true;
