@@ -63,7 +63,7 @@ function sortTable(n) {
   }
 
 
-  table.childNodes[2].replaceChildren(rows);
+  table.childNodes[2].replaceChildren(...rows);
 
 }
 
