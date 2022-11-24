@@ -1,3 +1,5 @@
+
+
 function createTable(data){
   table = document.getElementById("myTable2");
   let thead = table.createTHead();
@@ -12,6 +14,7 @@ function createTable(data){
     let text = document.createTextNode(key);
     th.appendChild(text);
     row.appendChild(th);
+
   }
 
   let tbody = document.createElement("tbody");
@@ -25,60 +28,42 @@ function createTable(data){
     }
   }
 }
-function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("myTable2");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-      // Start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /* Loop through all table rows (except the
-      first, which contains table headers): */
-      for (i = 1; i < (rows.length - 1); i++) {
-        // Start by saying there should be no switching:
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-        one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
-        /* Check if the two rows should switch place,
-        based on the direction, asc or desc: */
-        if (dir == "asc") {
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-      }
-      if (shouldSwitch) {
-        /* If a switch has been marked, make the switch
-        and mark that a switch has been done: */
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        // Each time a switch is done, increase this count by 1:
-        switchcount ++;
-      } else {
-        /* If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again. */
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
-        }
-      }
-    }
+
+function sorter(a, b){
+  var afix = a[rowIndex].replace("$", "");
+  var bfix = b[rowIndex].replace("$", "");
+
+  var aNum = parseInt(afix);
+  var bNum = parseInt(bfix);
+
+  if (aNum != NaN && bNum != NaN){
+    return bNum - aNum;
   }
+  else{
+    return a[rowIndex].localeCompare(b[rowIndex]);
+  }
+}
+
+let rowIndex = -1;
+
+function sortTable(n) {
+  let table = document.getElementById("myTable2"); 
+  let rows = table.rows;
+  let rev = false;
+  if (rowIndex == n){
+    rev = true;
+  }
+  rowIndex = n;
+  rows.sort(sorter(a, b));
+
+  if (rev){
+    rows.reverse();
+  }
+
+
+  table.replaceChildren(rows);
+
+}
 
 function parseData(){
     const ret = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vR93T8C7GNbKAjsYVfDcstgsmT_FSx5w3tW96CeeAq2fcPZ8Pr49RXz1cVU2ckRzzwA2n6mks6a5mZY/pub?gid=0&single=true&output=csv', {cache: 'reload'})
