@@ -37,9 +37,11 @@ function sorter(a, b){
   var bNum = parseInt(bfix);
 
   if (aNum != NaN && bNum != NaN){
+    console.log("numbersort");
     return bNum - aNum;
   }
   else{
+    console.log("stringsort");
     return afix.localeCompare(bfix);
   }
 }
