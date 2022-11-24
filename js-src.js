@@ -48,7 +48,7 @@ let colIndex = -1;
 
 function sortTable(n) {
   let table = document.getElementById("myTable2"); 
-  let rows = Array.from(table.rows).shift();
+  let rows = Array.from(table.rows);
   let rev = false;
 
   console.log(rows);
