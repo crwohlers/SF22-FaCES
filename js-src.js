@@ -37,28 +37,29 @@ function sorter(a, b){
   var bNum = parseInt(bfix);
 
   if (!isNaN(aNum) && !isNaN(bNum)){
-    console.log("numbersort");
     return bNum - aNum;
   }
   else{
-    console.log("stringsort");
-    console.log(afix + ", " + bfix);
     return afix.localeCompare(bfix);
   }
 }
 
 let colIndex = -1;
+let rev = false;
 
 function sortTable(n) {
   let table = document.getElementById("myTable2"); 
   let rows = Array.from(table.rows);
-  let rev = false;
 
   rows.shift();
-  console.log(n);
+
   if (colIndex == n){
     rev = !rev;
   }
+  else {
+    rev = false;
+  }
+  
   colIndex = n;
   rows.sort((a, b)=>sorter(a, b));
 
