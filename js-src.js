@@ -53,6 +53,7 @@ function sortTable(n) {
   if (rowIndex == n){
     rev = true;
   }
+  console.log(rows);
   rowIndex = n;
   rows.sort((a, b)=>sorter(a, b));
 
