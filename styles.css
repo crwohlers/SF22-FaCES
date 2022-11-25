@@ -29,6 +29,7 @@ table tr th {
     white-space: nowrap;
     overflow: clip;
     cursor: pointer;
+    position: relative;
 }
 
   /* top-left border-radius */
@@ -64,7 +65,7 @@ span.ripple {
     border-radius: 50%;
     transform: scale(0);
     animation: ripple 600ms linear;
-    background-color: rgba(188, 19, 176, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
   }
   
   @keyframes ripple {
