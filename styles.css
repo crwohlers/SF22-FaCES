@@ -48,6 +48,6 @@ table tr:last-child td:last-child {
     border-bottom-right-radius: 6px;
 }
 
-table tr th :hover {
+table tr th:hover {
     background-color: cadetblue;
 }
