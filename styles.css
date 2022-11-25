@@ -27,6 +27,7 @@ table tr th {
     text-align: left;
     border-top: solid 1px #bbb;
     white-space: nowrap;
+    overflow: hidden;
 }
 
   /* top-left border-radius */
