@@ -9,6 +9,7 @@ function createTable(data){
     let key = keys[x];
     let th = document.createElement("th");
     th.onclick = function () {sortTable(x)};
+    th.addEventListener("click", createRipple);
     let text = document.createTextNode(key);
     th.appendChild(text);
     row.appendChild(th);
@@ -87,6 +88,27 @@ function sortTable(n) {
 
   table.childNodes[2].replaceChildren(...rows);
 
+}
+
+function createRipple(event) {
+  const button = event.currentTarget;
+
+  const circle = document.createElement("span");
+  const diameter = Math.max(button.clientWidth, button.clientHeight);
+  const radius = diameter / 2;
+
+  circle.style.width = circle.style.height = `${diameter}px`;
+  circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+  circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+  circle.classList.add("ripple");
+
+  const ripple = button.getElementsByClassName("ripple")[0];
+
+  if (ripple) {
+    ripple.remove();
+  }
+
+  button.appendChild(circle);
 }
 
 function parseData(){
