@@ -50,7 +50,7 @@ function sortTable(n) {
   let table = document.getElementById("myTable2"); 
   let rows = Array.from(table.rows);
   
-  rows.shift();
+  let headerRow = rows.shift();
 
   if (colIndex == n){
     rev = !rev;
@@ -80,8 +80,8 @@ function sortTable(n) {
   else{
     img.src = "smalltop.png";
   }
-  
-  imageHolder = rows[0].children[n];
+
+  imageHolder = headerRow.children[n];
   
   imageHolder.appendChild(img);
 
