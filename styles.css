@@ -26,6 +26,7 @@ table tr th {
     background: #eee;
     text-align: left;
     border-top: solid 1px #bbb;
+    white-space: nowrap;
 }
 
   /* top-left border-radius */
