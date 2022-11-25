@@ -54,5 +54,5 @@ table tr th:hover {
 }
 
 img {
-    text-align: right;
+    float: right;
 }
