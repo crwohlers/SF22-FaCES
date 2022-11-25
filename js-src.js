@@ -44,11 +44,12 @@ function sorter(a, b){
 
 let colIndex = -1;
 let rev = false;
+let imageHolder = null;
 
 function sortTable(n) {
   let table = document.getElementById("myTable2"); 
   let rows = Array.from(table.rows);
-
+  imageHolder = rows.children[0].children[n];
   rows.shift();
 
   if (colIndex == n){
@@ -61,10 +62,27 @@ function sortTable(n) {
   colIndex = n;
   rows.sort((a, b)=>sorter(a, b));
 
-  if (rev){
-    rows.reverse();
+  let sortImage = document.getElementById("sortImage");
+    
+  if (sortImage != null){
+    imageHolder.removeChild(sortImage);
   }
 
+  let img = document.createElement("img");
+  img.id = "sortImage";
+
+  if (rev){
+    rows.reverse();
+    
+    img.src = "largetop.png";
+    
+  }
+  else{
+    img.src = "smalltop.png";
+  }
+
+  
+  imageHolder.appendChild(img);
 
   table.childNodes[2].replaceChildren(...rows);
 
@@ -96,3 +114,4 @@ function parseData(){
 }
 
 parseData().then((data)=>createTable(data));
+sortTable(0);
