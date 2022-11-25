@@ -51,3 +51,7 @@ table tr:last-child td:last-child {
 table tr th:hover {
     background-color: cadetblue;
 }
+
+img {
+    text-align: right;
+}

@@ -81,7 +81,6 @@ function sortTable(n) {
     img.src = "smalltop.png";
   }
 
-  console.log(headerRow);
   imageHolder = headerRow.children[n];
   
   imageHolder.appendChild(img);
