@@ -113,5 +113,4 @@ function parseData(){
     return ret;
 }
 
-parseData().then((data)=>createTable(data));
-sortTable(0);
+parseData().then((data)=>createTable(data)).then(sortTable(0));
