@@ -49,7 +49,7 @@ let imageHolder = null;
 function sortTable(n) {
   let table = document.getElementById("myTable2"); 
   let rows = Array.from(table.rows);
-  imageHolder = rows.children[0].children[n];
+  imageHolder = rows[0].children[n];
   rows.shift();
 
   if (colIndex == n){
