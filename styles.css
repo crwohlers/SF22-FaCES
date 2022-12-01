@@ -78,3 +78,7 @@ span.ripple {
   table {
     background-color: rgb(232, 236, 227);
   }
+
+  .centered {
+    margin: auto;
+  }
