@@ -136,4 +136,6 @@ function parseData(){
     return ret;
 }
 
-parseData().then((data)=>createTable(data)).then(()=>sortTable(0));
+let parsedData = [];
+
+parseData().then((data)=>{parsedData = data; createTable(data)}).then(()=>{console.log(parsedData); sortTable(0)});
