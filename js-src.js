@@ -123,7 +123,7 @@ function createRipple(event) {
 
 function parseData(){
     const ret = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vR93T8C7GNbKAjsYVfDcstgsmT_FSx5w3tW96CeeAq2fcPZ8Pr49RXz1cVU2ckRzzwA2n6mks6a5mZY/pub?gid=0&single=true&output=csv', {cache: 'reload'})
-    .then((reponse) => reponse.text()).then(
+    .then((reponse) => reponse.text().then((text)=>text.replace(/\r/gm, ""))).then(
         function(data){
            let lines = data.split("\n");
            let headers = lines[0].split(/(?!\B\"[^"]*),(?![^"]*\"\B)/);
@@ -159,7 +159,7 @@ function budgetChange(input){
     errorText.style.color = 'rgba(255,0,0,0)';
     let budget = parseFloat(input);
     for(let org of parsedData){
-      org["Advising Score"] = parseInt(org["Daily Cost"].replace("$", "")) < budget ? parseInt(org["**Benefit\r"]) : parseFloat(org["**Benefit\r"]) / (1 + Math.abs(budget - parseInt(org["Daily Cost"].replace("$", ""))) / budget);
+      org["Advising Score"] = parseInt(org["Daily Cost"].replace("$", "")) < budget ? parseInt(org["**Benefit"]) : parseFloat(org["**Benefit"]) / (1 + Math.abs(budget - parseInt(org["Daily Cost"].replace("$", ""))) / budget);
     }
   }
 
