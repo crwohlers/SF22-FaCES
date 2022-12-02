@@ -12,7 +12,8 @@
 <body>
   <div class="centered">
     <label for="budgetBox">Enter Your Daily Budget: </label><br>
-    <input class="margin8" type="text" id="budgetBox">
+    <input style="margin-top: 8px; margin-bottom: 8px;" type="text" id="budgetBox" oninput="budgetChange(this.value)"><br>
+    <p id="budgetErrorText" style="color: rgba(255, 0, 0, 0); margin-bottom: 8px;">Please Enter a valid budget.</p>
   </div>
   <table style="width: 100%;" id="myTable2">
 </table>

@@ -136,6 +136,18 @@ function parseData(){
     return ret;
 }
 
-let parsedData = [];
+function budgetChange(input){
+  if(!input){//null, undef, etc. mostly catches null
+    errorText.style.color = 'rgba(255,0,0,0)';
+    return;
+  }
+  else if(input.match(/^\d*\.?\d{0,2}$/gm).length == 0){
+    errorText.style.color = 'rgba(255,0,0,1)';
+    return;
+  }
+}
 
-parseData().then((data)=>{parsedData = data; createTable(data)}).then(()=>{console.log(parsedData); sortTable(0)});
+let parsedData = [];
+let errorText = document.getElementById("budgetErrorText");
+
+parseData().then((data)=>{parsedData = data; createTable(data)}).then(()=>sortTable(0));
