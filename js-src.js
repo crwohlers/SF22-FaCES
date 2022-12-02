@@ -151,7 +151,7 @@ function budgetChange(input){
     errorText.style.color = 'rgba(255,0,0,0)';
     return;
   }
-  else if(input.match(/^\d*\.?\d{0,2}$/gm) == null){//assure good
+  else if(input.match(/^\$?\d*\.?\d{0,2}$/gm) == null){//assure good
     errorText.style.color = 'rgba(255,0,0,1)';
     return;
   }
