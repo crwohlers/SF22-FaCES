@@ -157,9 +157,11 @@ function budgetChange(input){
   }
   else {//input is probably good at this point
     errorText.style.color = 'rgba(255,0,0,0)';
-    let budget = parseFloat(input);
-    for(let org of parsedData){
-      org["Advising Score"] = parseFloat(org["Daily Cost"].replace("$", "")) < budget ? parseInt(org["**Benefit"]) : parseFloat(org["**Benefit"]) / ((1 + Math.abs(budget - parseFloat(org["Daily Cost"].replace("$", "")))) / budget);
+    if (input != "$"){
+      let budget = parseFloat(input.replace("$", ""));
+      for(let org of parsedData){
+        org["Advising Score"] = parseFloat(org["Daily Cost"].replace("$", "")) < budget ? parseInt(org["**Benefit"]) : parseFloat(org["**Benefit"]) / ((1 + Math.abs(budget - parseFloat(org["Daily Cost"].replace("$", "")))) / budget);
+      }
     }
   }
 
