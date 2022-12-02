@@ -152,7 +152,7 @@ function budgetChange(input){
     errorText.style.color = 'rgba(255,0,0,0)';
     let budget = parseFloat(input);
     for(let org of parsedData){
-      org["Advising Score"] = parseInt(org["Daily Cost"]) < budget ? org["**Benefit"] : org["**Benefit"] / (1 + Math.abs(budget - parseInt(org["Daily Cost"])) / budget);
+      org["Advising Score"] = parseInt(org["Daily Cost"].replace("$", "")) < budget ? parseInt(org["**Benefit\r"]) : parseFloat(org["**Benefit\r"]) / (1 + Math.abs(budget - parseInt(org["Daily Cost"].replace("$", ""))) / budget);
     }
   }
 
@@ -164,8 +164,8 @@ function updateScores(){
 
   for(x = 1; x < table.rows.length; x++){
     let row = table.rows[x];
-    let orgName = row.children[0];
-    row.children[1].innerText = parsedData.find((ele)=> ele["Organization"] == orgName)["Advising Score"];
+    let orgName = row.children[0].innerText;
+    row.children[2].innerText = parsedData.find((ele)=> ele["Organization"] == orgName)["Advising Score"];
   }
 
 
