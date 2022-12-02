@@ -50,17 +50,24 @@ let colIndex = -1;
 let rev = false;
 let imageHolder = null;
 
-function sortTable(n) {
+function sortTable(n, dir) {
   let table = document.getElementById("myTable2"); 
   let rows = Array.from(table.rows);
   
   let headerRow = rows.shift();
-
-  if (colIndex == n){
-    rev = !rev;
+  if (dir == 'asc'){
+    rev = true;
   }
-  else {
+  else if (dir == 'des'){
     rev = false;
+  }
+  else{
+    if (colIndex == n){
+      rev = !rev;
+    }
+    else {
+      rev = false;
+    }
   }
 
   colIndex = n;
@@ -169,7 +176,7 @@ function updateScores(){
   }
 
 
-  sortTable(2);//not sure on design here.
+  sortTable(2, 'des');//not sure on design here.
 }
 
 let parsedData = [];
