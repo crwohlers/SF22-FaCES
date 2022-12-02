@@ -84,3 +84,7 @@ span.ripple {
     text-align: center;
     width: auto;
   }
+
+  .margin5 {
+    margin-bottom: 8px;
+  }
