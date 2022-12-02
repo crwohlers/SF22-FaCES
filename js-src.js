@@ -169,7 +169,7 @@ function updateScores(){
   }
 
 
-  sortTable(1);//not sure on design here.
+  sortTable(2);//not sure on design here.
 }
 
 let parsedData = [];
