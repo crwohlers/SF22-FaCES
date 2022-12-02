@@ -55,10 +55,10 @@ function sortTable(n, dir) {
   let rows = Array.from(table.rows);
   
   let headerRow = rows.shift();
-  if (dir == 'asc'){
+  if (dir == 'des'){
     rev = true;
   }
-  else if (dir == 'des'){
+  else if (dir == 'asc'){
     rev = false;
   }
   else{
