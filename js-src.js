@@ -7,13 +7,14 @@ function createTable(data){
 
   for (let x = 0; x< keys.length; x ++) {
     let key = keys[x];
-    let th = document.createElement("th");
-    th.onclick = function () {sortTable(x)};
-    th.addEventListener("click", createRipple);
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    row.appendChild(th);
-
+    if (!key.startsWith("**")){
+      let th = document.createElement("th");
+      th.onclick = function () {sortTable(x)};
+      th.addEventListener("click", createRipple);
+      let text = document.createTextNode(key);
+      th.appendChild(text);
+      row.appendChild(th);
+    }
   }
 
   let tbody = document.createElement("tbody");
@@ -21,9 +22,11 @@ function createTable(data){
   for (let element of data) {
     let row = tbody.insertRow();
     for (let key in element) {
-      let cell = row.insertCell();
-      let text = document.createTextNode(element[key]);
-      cell.appendChild(text);
+      if (!key.startsWith("**")){
+        let cell = row.insertCell();
+        let text = document.createTextNode(element[key]);
+        cell.appendChild(text);
+      }
     }
   }
 }
@@ -141,10 +144,32 @@ function budgetChange(input){
     errorText.style.color = 'rgba(255,0,0,0)';
     return;
   }
-  else if(input.match(/^\d*\.?\d{0,2}$/gm).length == 0){
+  else if(input.match(/^\d*\.?\d{0,2}$/gm == null)){//assure good
     errorText.style.color = 'rgba(255,0,0,1)';
     return;
   }
+  else {//input is probably good at this point
+    errorText.style.color = 'rgba(255,0,0,0)';
+    let budget = parseFloat(input);
+    for(let org of parsedData){
+      org["Advising Score"] = parseInt(org["Daily Cost"]) < budget ? org["**Benefit"] : org["**Benefit"] / (1 + Math.abs(budget - parseInt(org["Daily Cost"])) / budget);
+    }
+  }
+
+  updateScores();
+}
+
+function updateScores(){
+  table = document.getElementById("myTable2");
+
+  for(x = 1; x < table.rows.length; x++){
+    let row = table.rows[x];
+    let orgName = row.children[0];
+    row.children[1].innerText = parsedData.find((ele)=> ele["Organization"] == orgName)["Advising Score"];
+  }
+
+
+  sortTable(1);//not sure on design here.
 }
 
 let parsedData = [];
