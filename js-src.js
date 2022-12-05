@@ -166,13 +166,13 @@ function budgetChange(input){
       let budget = parseFloat(input.replace("$", ""));
       for(let org of parsedData){
         let dCost = parseFloat(org[costColumn].replace("$", ""));
-        org[advisingColumn] = dCost < budget ? dCost : dCost / (1 + Math.abs(budget - dCost) / budget);
+        org[advisingColumn] = dCost < budget ? parseInt(org[benefitColumn]) : parseInt(org[benefitColumn]) / (1 + Math.abs(budget - dCost) / budget);
       }
     }
   }
 
   let max = Math.max(...parsedData.map((a)=> a[advisingColumn]));
-  parsedData.forEach((a)=> a[advisingColumn] = (a[advisingColumn] / max) * 100);
+  parsedData.forEach((a)=> a[advisingColumn] = Math.round((((a[advisingColumn] / max) * 100) + Number.EPSILON) * 100) / 100);
 
   updateScores();
 }
