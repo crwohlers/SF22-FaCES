@@ -165,7 +165,8 @@ function budgetChange(input){
     if (input != "$"){
       let budget = parseFloat(input.replace("$", ""));
       for(let org of parsedData){
-        org[advisingColumn] = parseFloat(org[costColumn].replace("$", "")) < budget ? parseInt(org[costColumn]) : parseFloat(org[costColumn]) / (1 + Math.abs(budget - parseFloat(org[costColumn].replace("$", ""))) / budget);
+        let dCost = parseFloat(org[costColumn].replace("$", ""));
+        org[advisingColumn] = dCost < budget ? dCost : dCost / (1 + Math.abs(budget - dCost) / budget);
       }
     }
   }
