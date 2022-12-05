@@ -170,8 +170,8 @@ function budgetChange(input){
     }
   }
 
-  parsedData.sort((a, b) => b[advisingColumn] - a[advisingColumn]);
-  parsedData.forEach((a)=> a[advisingColumn] = (parsedData.indexOf(a) + 1))
+  let max = Math.max(...parsedData.map((a)=> a[advisingColumn]));
+  parsedData.forEach((a)=> a[advisingColumn] = (a[advisingColumn] / max) * 100);
 
   updateScores();
 }
