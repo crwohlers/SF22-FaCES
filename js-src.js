@@ -170,7 +170,7 @@ function budgetChange(input){
     }
   }
 
-  parsedData.sort((a, b) => a[advisingColumn] - b[advisingColumn]);
+  parsedData.sort((a, b) => b[advisingColumn] - a[advisingColumn]);
   parsedData.forEach((a)=> a[advisingColumn] = (parsedData.indexOf(a) + 1))
 
   updateScores();
