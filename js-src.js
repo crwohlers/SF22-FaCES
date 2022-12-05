@@ -1,5 +1,10 @@
+const tableID = "myTable2";
+const advisingColumn = "Advising Score";
+const benefitColumn = "**Benefit";
+const costColumn = "Daily Cost";
+
 function createTable(data){
-  table = document.getElementById("myTable2");
+  table = document.getElementById(tableID);
   let thead = table.createTHead();
   let row = thead.insertRow();
 
@@ -51,7 +56,7 @@ let rev = false;
 let imageHolder = null;
 
 function sortTable(n, dir) {
-  let table = document.getElementById("myTable2"); 
+  let table = document.getElementById(tableID); 
   let rows = Array.from(table.rows);
   
   let headerRow = rows.shift();
@@ -155,26 +160,29 @@ function budgetChange(input){
     errorText.style.color = 'rgba(255,0,0,1)';
     return;
   }
-  else {//input is probably good at this point
+  else {//input is probably good
     errorText.style.color = 'rgba(255,0,0,0)';
     if (input != "$"){
       let budget = parseFloat(input.replace("$", ""));
       for(let org of parsedData){
-        org["Advising Score"] = parseFloat(org["Daily Cost"].replace("$", "")) < budget ? parseInt(org["**Benefit"]) : parseFloat(org["**Benefit"]) / (1 + Math.abs(budget - parseFloat(org["Daily Cost"].replace("$", ""))) / budget);
+        org[advisingColumn] = parseFloat(org[costColumn].replace("$", "")) < budget ? parseInt(org[costColumn]) : parseFloat(org[costColumn]) / (1 + Math.abs(budget - parseFloat(org[costColumn].replace("$", ""))) / budget);
       }
     }
   }
+
+  parsedData.sort((a, b) => a[advisingColumn] - b[advisingColumn]);
+  parsedData.forEach((a)=> a[advisingColumn] = (parsedData.indexOf(a) + 1))
 
   updateScores();
 }
 
 function updateScores(){
-  table = document.getElementById("myTable2");
+  table = document.getElementById(tableID);
 
   for(x = 1; x < table.rows.length; x++){
     let row = table.rows[x];
     let orgName = row.children[0].innerText;
-    row.children[2].innerText = parsedData.find((ele)=> ele["Organization"] == orgName)["Advising Score"];
+    row.children[2].innerText = parsedData.find((ele)=> ele["Organization"] == orgName)[advisingColumn];
   }
 
 
