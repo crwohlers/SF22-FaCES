@@ -169,6 +169,9 @@ function budgetChange(input){
         org[advisingColumn] = dCost < budget ? parseInt(org[benefitColumn]) : parseInt(org[benefitColumn]) / (1 + Math.abs(budget - dCost) / budget);
       }
     }
+    else{
+      return;
+    }
   }
 
   let max = Math.max(...parsedData.map((a)=> a[advisingColumn]));
