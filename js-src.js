@@ -16,6 +16,7 @@ function createTable(data){
       let th = document.createElement("th");
       th.onclick = function () {sortTable(x)};
       th.addEventListener("click", createRipple);
+      th.className = "tooltip " + key.replace(" ", "-");
       let text = document.createTextNode(key);
       th.appendChild(text);
       row.appendChild(th);
@@ -196,4 +197,14 @@ function updateScores(){
 let parsedData = [];
 let errorText = document.getElementById("budgetErrorText");
 
-parseData().then((data)=>{parsedData = data; createTable(data)}).then(()=>sortTable(0));
+function tooltipping(){
+  let advisingHeader = document.getElementsByClassName("Advising-Score")[0];
+
+  let tooltip = document.createElement("span");
+
+  tooltip.className = "tooltiptext";
+
+  tooltip.innerText = "Our recommendation for you based on cost and budget."
+}
+
+parseData().then((data)=>{parsedData = data; createTable(data)}).then(()=>sortTable(0)).then(()=>tooltipping());
