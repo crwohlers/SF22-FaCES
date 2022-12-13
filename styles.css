@@ -107,14 +107,14 @@ span.ripple {
   }
   
   .tooltip .tooltiptext::after {
-    content: " ";
+    content: "";
     position: absolute;
-    bottom: 100%;  /* At the top of the tooltip */
+    top: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent black transparent;
+    border-color: black transparent transparent transparent;
   }
   
   .tooltip:hover .tooltiptext {
